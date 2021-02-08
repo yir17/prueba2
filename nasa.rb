@@ -35,7 +35,7 @@ end
 def photos_count(response_result)
     camaras = []
     i = 0
-    loop do
+    loop do 
         camaras << response_result['photos'][i]['camera']['name']
         if i == ((response_result['photos'].length) - 1)
             break
@@ -44,7 +44,7 @@ def photos_count(response_result)
     end
     
     hash = camaras.reduce (Hash.new(0)) {|conteo, elemento| conteo[elemento]+=1; conteo}
-    puts hash.class #con el punto class imprimo el objeto
+    puts hash #con el punto class imprimo el objeto
 end
 
 nasa_array = request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000', 'cTZ0aU4XJ0dqhUI01mbWxn4AcdOMo5YzSkzmztau')
